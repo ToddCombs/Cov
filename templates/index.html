@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My page</title>
+    <script src="../static/js/jquery.js"></script>
+</head>
+<body>
+<h1>疫情追踪</h1>
+<h2>实时报道</h2>
+<button>点我点我！</button>
+<script>
+    $("button").click(function () {
+        $.ajax({
+            url:"/ajax",
+            type:"post",
+            data:{"name":"todd", "score":99},
+            success:function (d) {
+                $("h1").html("居然可以运行: "+ d)
+            },error:function () {
+                alert("发送ajax请求失败")
+            }
+        })
+    })
+</script>
+</body>
+</html>
