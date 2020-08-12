@@ -129,9 +129,5 @@ def get_r2_data():
     return jsonify({"kws":d})
 
 
-
-
-
-
 if __name__ == '__main__':
     app.run()
