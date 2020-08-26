@@ -63,7 +63,7 @@ def get_tencent_data():
 
 def get_conn():
     # 建立连接
-    conn = pymysql.connect(host="###", user="###", password="###", db="cov", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="root", password="123456", db="cov", charset="utf8")
     # c创建游标
     cursor = conn.cursor()
     return conn, cursor
@@ -155,7 +155,8 @@ def get_baidu_hot():
     url = "https://voice.baidu.com/act/virussearch/virussearch?from=osari_map&tab=0&infomore=1"
     browser.get(url)
     #print(brower.page_source)
-    but = browser.find_element_by_css_selector('#ptab-0 > div > div.VirusHot_1-5-3_32AY4F.VirusHot_1-5-3_2RnRvg > section > div')
+    # but = browser.find_element_by_css_selector('#ptab-0 > div > div.VirusHot_1-5-3_32AY4F.VirusHot_1-5-3_2RnRvg > section > div')
+    but = browser.find_element_by_css_selector('#ptab-0 > div > div.VirusHot_1-5-6_32AY4F.VirusHot_1-5-6_2RnRvg > section > div')
     #点击加载更多
     but.click()
     time.sleep(1)
@@ -203,3 +204,7 @@ if __name__ == "__main__":
             update_details()
         elif order == "up_hot":
             update_hotsearch()
+
+update_history()
+update_details()
+update_hotsearch()
